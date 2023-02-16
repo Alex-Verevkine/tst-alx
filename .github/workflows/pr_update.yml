@@ -1,0 +1,18 @@
+name: PR update
+
+on:
+  pull_request:
+    types: ubuntu-latest
+
+jobs:
+  stale:
+
+    runs-on: [ self-hosted ]
+    steps:
+      - name: Check Branch
+        id: check-branch
+        run: |
+          if [[ ${{ github.head_ref }} =~ ^[A-Za-z]+-[0-9]+.*$ ]]; then
+              echo ::set-output name=match::true
+          fi
+      - uses: tzkhan/pr-update-action@v2

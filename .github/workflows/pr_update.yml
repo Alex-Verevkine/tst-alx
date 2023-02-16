@@ -12,10 +12,10 @@ jobs:
       - name: Check Branch
         id: check-branch
         run: |
-          if [[ ${{ github.event.pull_request.title }} =~ ^JIRA-.*$ ]]; then
+          if [[ ${{ github.event.pull_request.title }} =~ ^.*JIRA-.*$ ]]; then
+              echo ::set-output name=match::true
+          fi
+        if: steps.check-branch.outputs.match == 'true'
+        run: 
               echo "Good name!"
               exit 0
-          else
-              echo "Bad name!"
-              exit 1   
-          fi

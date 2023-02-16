@@ -15,6 +15,7 @@ jobs:
           if [[ ${{ github.event.pull_request.title }} =~ ^.*JIRA-.*$ ]]; then
               echo ::set-output name=match::true
           fi
+      - name: Generate Link
         if: steps.check-branch.outputs.match == 'true'
         run: 
               echo "Good name!"

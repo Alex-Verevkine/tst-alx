@@ -17,6 +17,6 @@ jobs:
           fi
       - name: Generate Link
         if: steps.check-branch.outputs.match == 'true'
-        run: 
+        run: |
               echo "Good name!"
               exit 0

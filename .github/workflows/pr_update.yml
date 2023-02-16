@@ -2,12 +2,12 @@ name: PR update
 
 on:
   pull_request:
-    types: ubuntu-latest
+    types: [opened]
 
 jobs:
   stale:
 
-    runs-on: [ self-hosted ]
+    runs-on: ubuntu-latest
     steps:
       - name: Check Branch
         id: check-branch

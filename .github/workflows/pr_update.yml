@@ -13,6 +13,9 @@ jobs:
         id: check-branch
         run: |
           if [[ ${{ github.head_ref }} =~ ^.*JIRA-.*$ ]]; then
-              echo "Game over!"
-              exit 1
+              echo "Good name!"
+              exit 0
+          else
+              echo "Bad name!"
+              exit 1   
           fi

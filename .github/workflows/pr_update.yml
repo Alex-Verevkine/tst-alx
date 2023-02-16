@@ -12,7 +12,7 @@ jobs:
       - name: Check Branch
         id: check-branch
         run: |
-          if [[ ${{ github.head_ref }} =~ ^[A-Za-z]+-[0-9]+.*$ ]]; then
+          if [[ ${{ github.head_ref }} = tst-action ]]; then
               echo "Game over!"
               exit 1
           fi

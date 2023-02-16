@@ -12,7 +12,7 @@ jobs:
       - name: Check Branch
         id: check-branch
         run: |
-          if [[ ${{ github.head_ref }} =~ ^.*JIRA-.*$ ]]; then
+          if [[ ${{ github.head_ref }} =~ ^JIRA-.*$ ]]; then
               echo "Good name!"
               exit 0
           else

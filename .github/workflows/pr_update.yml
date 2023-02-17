@@ -22,3 +22,7 @@ jobs:
       - name: Generate Link
         if: ${{ steps.check-branch.outputs.match != '' }}
         uses: luigibertaco/dynamic-template-action@1.0.0
+        with:
+          token: ${{ github.token }}
+          customInput: 
+            ticket: 'aaa'

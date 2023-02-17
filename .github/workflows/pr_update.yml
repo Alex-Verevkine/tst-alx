@@ -22,6 +22,10 @@ jobs:
 
       - name: Generate Link
         if: ${{ steps.check-branch.outputs.match != '' }}
+        env:
+            GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-              echo ${{ steps.check-branch.outputs.match }}
-              echo ${{ toJSON(github.event.pull_request) }}
+              echo "$GITHUB_CONTEXT"
+        # run: |
+        #       echo ${{ steps.check-branch.outputs.match }}
+        #       echo ${{ toJSON(github.event.pull_request) }}

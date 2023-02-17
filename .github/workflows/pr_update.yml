@@ -20,7 +20,7 @@ jobs:
               echo "Missing Jira Ticket!"
               exit 1
 
-      - uses: riskledger/update-pr-description@dev
+      - uses: riskledger/update-pr-description
         name: Generate Link
         if: ${{ steps.check-branch.outputs.match != '' }}
         with:

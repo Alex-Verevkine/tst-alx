@@ -8,11 +8,11 @@ jobs:
     name: PR update
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions-ecosystem/action-regex-match@v2
         id: check-branch
         with:
           text: ${{ github.event.pull_request.title }}
-          regex: '^JIRA-.*$'
+          regex: '^.*JIRA-.*$'
 
       - name: Validate Jira Prefix
         if: ${{ steps.check-branch.outputs.match == '' }}

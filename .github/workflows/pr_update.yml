@@ -17,4 +17,4 @@ jobs:
         if: ${{ steps.check-branch.outputs.match != '' }}
         run: |
               echo "Good name!"
-              exit 0
+              exit 1

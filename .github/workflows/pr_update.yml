@@ -24,4 +24,4 @@ jobs:
         if: ${{ steps.check-branch.outputs.match != '' }}
         run: |
               echo ${{ steps.check-branch.outputs.match }}
-              echo ${{ github.event.pull_request.description }}
+              echo ${{ github.event.pull_request }}

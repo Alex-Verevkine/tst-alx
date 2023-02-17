@@ -24,5 +24,8 @@ jobs:
         if: ${{ steps.check-branch.outputs.match != '' }}
         with:
           github_token: ${{ secrets.github_token }}
-          body: |
-            ${{ steps.regex-match.outputs.group1 }}
+          run: |
+              echo "---body---"
+              echo ${{ github.event.pull_request.description }}
+              echo "---body-ends---"
+              exit 1

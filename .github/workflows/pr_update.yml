@@ -20,12 +20,9 @@ jobs:
               echo "Missing Jira Ticket!"
               exit 1
 
-      - name: Generate Link
+      - uses: riskledger/update-pr-description@dev
+        name: Generate Link
         if: ${{ steps.check-branch.outputs.match != '' }}
         with:
-          github_token: ${{ secrets.github_token }}
-        run: |
-              echo "---body---"
-              echo ${{ github.event.pull_request.description }}
-              echo "---body-ends---"
-              exit 1
+          body: ${{ github.event.pull_request.title }}
+          token: ${{ secrets.GITHUB_TOKEN }}

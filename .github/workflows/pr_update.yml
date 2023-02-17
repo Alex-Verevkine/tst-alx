@@ -12,7 +12,7 @@ jobs:
         id: check-branch
         with:
           text: ${{ github.event.pull_request.title }}
-          regex: '^.*JIRA-[0-9][^\D].*$'
+          regex: '^(JIRA-[0-9]+)'
 
       - name: Validate Jira Prefix
         if: ${{ steps.check-branch.outputs.match == '' }}

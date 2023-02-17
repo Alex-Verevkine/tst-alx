@@ -24,3 +24,4 @@ jobs:
         if: ${{ steps.check-branch.outputs.match != '' }}
         run: |
               echo ${{ steps.check-branch.outputs.match }}
+              ecoo ${{ github.event.pull_request.title }}

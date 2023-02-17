@@ -9,14 +9,17 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - name: Check Branch
+      - uses: actions/checkout@v2
         id: check-branch
+        with:
+          text: ${{ github.event.pull_request.title }}
+          regex: '^.*JIRA-.*$'
         run: |
           if [[ ${{ github.event.pull_request.title }} =~ ^.*JIRA-.*$ ]]; then
               echo ::set-output name=match::true
           fi
       - name: Generate Link
-        if: steps.check-branch.outputs.match == 'true'
+        if: ${{ steps.check-branch.outputs.match != '' }}
         run: |
               echo "Good name!"
               exit 0

@@ -8,21 +8,14 @@ jobs:
     name: PR update
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-ecosystem/action-regex-match@v2
+      - name: Check Branch
         id: check-branch
-        with:
-          text: ${{ github.event.pull_request.title }}
-          regex: '^.*JIRA-.*$'
-
-      - name: Validate Jira Prefix
-        if: ${{ steps.check-branch.outputs.match == '' }}
         run: |
-              echo "Missing Jira Ticket!"
-              exit 1
-
-      - name: Generate Link
-        if: ${{ steps.check-branch.outputs.match != '' }}
-        uses: tzkhan/pr-update-action@v2
+          if [[ ${{ github.head_ref }} =~ ^[A-Za-z]+-[0-9]+.*$ ]]; then
+              echo ::set-output name=match::true
+          fi
+      - uses: tzkhan/pr-update-action@v2
+        if: steps.check-branch.outputs.match == 'true'
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           base-branch-regex: '[A-Za-z\d-_.\\/]+'

@@ -23,5 +23,5 @@ jobs:
       - name: Generate Link
         uses: kt3k/update-pr-description@v1.0.1
         with:
-          pr_body: ${{ github.event.pull_request.title }}
+          pr_body: "**some description**"
           github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,13 @@
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        id: check-branch
+        with:
+          text: ${{ github.event.pull_request.title }}
+          regex: '^.*JIRA-.*$'
+      - name: Generate Link
+        if: ${{ steps.check-branch.outputs.match != '' }}
+        run: |
+              echo "Good name!"
+              exit 0

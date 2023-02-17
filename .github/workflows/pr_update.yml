@@ -23,4 +23,4 @@ jobs:
       - name: Generate Link
         if: ${{ steps.check-branch.outputs.match != '' }}
         run: |
-              echo ${{ github.event.pull_request.title }}
+              echo ${{ steps.check-branch.outputs.match }}

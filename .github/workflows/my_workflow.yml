@@ -1,8 +1,8 @@
 on:
   pull_request:
     types: [edited, opened, reopened]
-    
-permissions: read-all|write-all
+
+permissions: write-all
 
 jobs:
   hello_world_job:

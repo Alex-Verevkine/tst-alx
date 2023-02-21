@@ -17,5 +17,5 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           customInput: 
-            today: ${{ steps.date.outputs.date }}
-            now: ${{ steps.date.outputs.date }}
+            today: "${{ steps.date.outputs.date }}"
+            now: "${{ steps.date.outputs.date }}"

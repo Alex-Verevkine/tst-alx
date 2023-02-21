@@ -1,1 +1,1 @@
-Your PR was created: {{ custom.ticket }}
+ Your PR was created: {{ custom.today }}

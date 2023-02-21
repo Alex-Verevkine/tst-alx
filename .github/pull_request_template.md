@@ -1,1 +1,1 @@
- Your PR was created: {{ custom.today }}
+Your PR was created: {{ head.ref }}
